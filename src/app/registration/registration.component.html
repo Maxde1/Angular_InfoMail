@@ -1,0 +1,22 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+  <mat-card fxFlex="25">
+    <form class="example-form" fxLayoutAlign="stretch" fxLayout="column">
+      <mat-toolbar fxLayoutAlign="center center">Sing up</mat-toolbar>
+      <mat-form-field >
+        <input matInput type="email" placeholder="email" [formControl]="email" [(ngModel)]="user.email" name="InputEmail">
+      </mat-form-field>
+      <p *ngIf="!email.valid && email.value.length!=0" class="mat-error" style="font-size: 7pt">Wrong email</p>
+      <mat-form-field >
+        <input matInput type="password" placeholder="Password" [(ngModel)]="user.password" name="InputPassword" >
+        <mat-hint>Any symbols</mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Confirm password" #confPass name="Input" >
+      </mat-form-field>
+      <p *ngIf="confPass.value!=user.password && confPass.value.length!=0" class="mat-error" style="font-size: 7pt">Passwords don't match</p>
+      <br>
+        <button mat-raised-button color="primary" (click)="addUser()">Sing up</button>
+    </form>
+  </mat-card>
+</div>
+

@@ -1,0 +1,18 @@
+
+<div fxLayoutAlign="center center" fxFlexFill>
+  <mat-card fxFlex="25">
+    <form class="example-form" fxLayoutAlign="stretch" fxLayout="column">
+      <mat-toolbar fxLayoutAlign="center center">Sing up</mat-toolbar>
+      <mat-form-field>
+        <input matInput placeholder="email" type="text" [formControl]="email" [(ngModel)]="user.email" name="InputEmail">
+      </mat-form-field>
+      <p *ngIf="!email.valid && email.value.length!=0" class="mat-error" style="font-size: 7pt">Wrong email</p>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" [(ngModel)]="user.password" name="InputPassword">
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" (click)="logInUser()">Sing up</button>
+    </form>
+  </mat-card>
+</div>
+
